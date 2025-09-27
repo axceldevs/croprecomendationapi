@@ -1,0 +1,11 @@
+pydantic
+sqlalchemy
+python-dotenv
+fastapi
+fastapi-cors
+uvicorn
+gunicorn
+pydantic_settings
+httptools
+numpy==1.26.4
+scikit-learn==1.3.2
