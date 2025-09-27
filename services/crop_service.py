@@ -26,6 +26,6 @@ class PredictionCrop():
         }
 
         input_data = np.array(list(features.values())).reshape(1, 7)
-        print(input_data)
+        prediction = model.predict(input_data)
 
-        return {"recommended_crop": "Wheat", "suitability_score": 85}
+        return prediction[0]
