@@ -8,3 +8,4 @@ class CropData(BaseModel):
     humidity: float
     ph: float
     rainfall: float
+    model_prediction: int = 0

@@ -4,7 +4,10 @@ import pickle
 import numpy as np
 
 with open("./resources/RFCropv132.pkl",'rb') as file:
-    model = pickle.load(file)
+    model_rf = pickle.load(file)
+
+with open("./resources/SVMCropv132.pkl",'rb') as file:
+    model_svm = pickle.load(file)
 
 labels = ['rice' 'maize' 'chickpea' 'kidneybeans' 'pigeonpeas' 'mothbeans'
  'mungbean' 'blackgram' 'lentil' 'pomegranate' 'banana' 'mango' 'grapes'
@@ -26,6 +29,10 @@ class PredictionCrop():
         }
 
         input_data = np.array(list(features.values())).reshape(1, 7)
-        prediction = model.predict(input_data)
+
+        if data.model_prediction == 0:
+            prediction = model_rf.predict(input_data)
+        else:
+            prediction = model_svm.predict(input_data)
 
         return prediction[0]
